@@ -16,6 +16,7 @@ parser.add_argument('--model_path', required=True, help='path of the model file 
 parser.add_argument('--input_path', default='LR', help='folder path of the lower resolution (input) images')
 parser.add_argument('--output_path', default='SR', help='folder path of the high resolution (output) images')
 parser.add_argument('--scale', default=4, help='upscaling factor')
+parser.add_argument('--self_ensemble', action='store_true', help='employ self ensemble')
 parser.add_argument('--cuda_device', default='-1', help='CUDA device index to be used (will be set to the environment variable \'CUDA_VISIBLE_DEVICES\')')
 args = parser.parse_args()
 
@@ -58,8 +59,30 @@ def main():
   for input_path, output_path in image_path_list:
     tf.logging.info('%s -> %s' % (input_path, output_path))
     input_image = image_reader.read(input_path)
-    output_image = sr_model.get_output([input_image])[0]
-    output_image = np.clip(output_image, 0, 255)
+
+    if (args.self_ensemble):
+      output_images = []
+      for flip_index in range(2): # for flipping
+        input_image = np.transpose(input_image, axes=(1, 0, 2))
+
+        for rotate_index in range(4): # for rotating
+          input_image = np.rot90(input_image, k=1, axes=(0, 1))
+
+          output_image = sr_model.get_output([input_image])[0]
+          output_image = np.clip(output_image, 0, 255)
+
+          output_image = np.rot90(output_image, k=(3-rotate_index), axes=(0, 1))
+          if (flip_index == 0):
+            output_image = np.transpose(output_image, axes=(1, 0, 2))
+          output_images.append(output_image)
+      
+      output_image = np.mean(output_images, axis=0)
+    
+    else:
+      output_image = sr_model.get_output([input_image])[0]
+      output_image = np.clip(output_image, 0, 255)
+    
+
     image_writer.write(output_image, output_path)
   
   # finalize
