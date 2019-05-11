@@ -59,6 +59,7 @@ def main():
     tf.logging.info('%s -> %s' % (input_path, output_path))
     input_image = image_reader.read(input_path)
     output_image = sr_model.get_output([input_image])[0]
+    output_image = np.clip(output_image, 0, 255)
     image_writer.write(output_image, output_path)
   
   # finalize
