@@ -56,6 +56,10 @@ def main():
           image_path_list.append([input_path, output_path])
   tf.logging.info('found %d images' % (len(image_path_list)))
 
+  # run a dummy image to initialize internal graph
+  input_image = np.zeros([32, 32, 3], dtype=np.uint8)
+  sr_model.get_output([input_image])
+
   # iterate
   running_time_list = []
   for input_path, output_path in image_path_list:
