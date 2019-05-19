@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import time
 
 import numpy as np
 import tensorflow as tf
@@ -56,19 +57,26 @@ def main():
   tf.logging.info('found %d images' % (len(image_path_list)))
 
   # iterate
+  running_time_list = []
   for input_path, output_path in image_path_list:
-    tf.logging.info('%s -> %s' % (input_path, output_path))
     input_image = image_reader.read(input_path)
+
+    running_time = 0.0
 
     if (args.self_ensemble):
       output_images = []
+      ensemble_running_time_list = []
       for flip_index in range(2): # for flipping
         input_image = np.transpose(input_image, axes=(1, 0, 2))
 
         for rotate_index in range(4): # for rotating
           input_image = np.rot90(input_image, k=1, axes=(0, 1))
 
+          t1 = time.perf_counter()
           output_image = sr_model.get_output([input_image])[0]
+          t2 = time.perf_counter()
+          ensemble_running_time_list.append(t2 - t1)
+
           output_image = np.clip(output_image, 0, 255)
 
           output_image = np.rot90(output_image, k=(3-rotate_index), axes=(0, 1))
@@ -77,16 +85,23 @@ def main():
           output_images.append(output_image)
       
       output_image = np.mean(output_images, axis=0)
+      running_time = np.sum(ensemble_running_time_list)
     
     else:
+      t1 = time.perf_counter()
       output_image = sr_model.get_output([input_image])[0]
+      t2 = time.perf_counter()
+      running_time = (t2 - t1)
+
       output_image = np.clip(output_image, 0, 255)
     
-
     image_writer.write(output_image, output_path)
+    tf.logging.info('%s -> %s, %.3f sec' % (input_path, output_path, running_time))
+    running_time_list.append(running_time)
   
   # finalize
   tf.logging.info('finished')
+  tf.logging.info('averaged running time per image: %.3f sec' % (np.mean(running_time_list)))
 
 
 if __name__ == '__main__':
