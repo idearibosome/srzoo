@@ -10,3 +10,86 @@ Here are the key features of SRZoo:
 - With SRZoo, you can easily obtain the super-resolved images from various supported super-resolution methods.
 - Since it is based on TensorFlow, it is possible to employ the super-resolution models in various environments such as GPUs supporting CUDA and web browsers via TensorFlow.js.
 - It is possible to compare the performance of the super-resolution methods with the same evaluation metrics and on the same environment.
+
+
+## Requirements
+
+- Python 3.6 or newer
+- TensorFlow 1.12 or newer
+
+
+## Pre-trained super-resolution models
+
+We currently provide the following pre-trained super-resolution models, where the model parameters are provided by the original authors.
+Please cite the paper of the original authors when you use the models.
+
+| Name | Config | Upscaling factor | Model | Source |
+| --- | --- | --- | --- | --- |
+| EDSR-baseline | [edsr_baseline.json](configs/edsr_baseline.json) | 2 | [edsr_baseline_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/edsr_baseline_x2.pb) | [EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch) |
+| EDSR-baseline | [edsr_baseline.json](configs/edsr_baseline.json) | 3 | [edsr_baseline_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/edsr_baseline_x3.pb) | [EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch) |
+| EDSR-baseline | [edsr_baseline.json](configs/edsr_baseline.json) | 4 | [edsr_baseline_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/edsr_baseline_x4.pb) | [EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch) |
+| EDSR | [edsr.json](configs/edsr.json) | 2 | [edsr_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/edsr_x2.pb) | [EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch) |
+| EDSR | [edsr.json](configs/edsr.json) | 3 | [edsr_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/edsr_x3.pb) | [EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch) |
+| EDSR | [edsr.json](configs/edsr.json) | 4 | [edsr_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/edsr_x4.pb) | [EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch) |
+| EUSR | [eusr.json](configs/eusr.json) | 2 | [eusr_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/eusr_x2.pb) | [EUSR-TensorFlow](https://github.com/junhyukk/EUSR-Tensorflow) |
+| EUSR | [eusr.json](configs/eusr.json) | 4 | [eusr_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/eusr_x4.pb) | [EUSR-TensorFlow](https://github.com/junhyukk/EUSR-Tensorflow) |
+| EUSR | [eusr.json](configs/eusr.json) | 8 | [eusr_x8.pb](http://mcml.yonsei.ac.kr/files/srzoo/eusr_x8.pb) | [EUSR-TensorFlow](https://github.com/junhyukk/EUSR-Tensorflow) |
+| RCAN | [rcan.json](configs/rcan.json) | 2 | [rcan_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x2.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
+| RCAN | [rcan.json](configs/rcan.json) | 3 | [rcan_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x3.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
+| RCAN | [rcan.json](configs/rcan.json) | 4 | [rcan_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x4.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
+| RCAN | [rcan.json](configs/rcan.json) | 8 | [rcan_x8.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x8.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
+| 4PP-EUSR | [4pp_eusr.json](configs/4pp_eusr.json) | 4 | [4pp_eusr_pirm_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/4pp_eusr_pirm_x4.pb) | [tf-perceptual-eusr](https://github.com/idearibosome/tf-perceptual-eusr) |
+| ESRGAN | [esrgan.json](configs/esrgan.json) | 4 | [esrgan_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/esrgan_x4.pb) | [ESRGAN](https://github.com/xinntao/ESRGAN) |
+| RRDB | [rrdb.json](configs/rrdb.json) | 4 | [rrdb_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/rrdb_x4.pb) | [RRDB](https://github.com/xinntao/ESRGAN) |
+| CARN | [carn.json](configs/carn.json) | 2 | [carn_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x2.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
+| CARN | [carn.json](configs/carn.json) | 3 | [carn_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x3.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
+| CARN | [carn.json](configs/carn.json) | 4 | [carn_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x4.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
+
+
+## Super-resolved image retrieval
+
+SRZoo offers a simple image retrieval via ```get_sr.py```, e.g.,
+```
+python get_sr.py --config_path=configs/edsr.json --model_path=edsr_x4.pb --input_path=LR --output_path=SR --scale=4
+```
+
+Arguments:
+- ```config_path```: Path of the model config file.
+- ```model_path```: Path of the pre-trained model file.
+- ```input_path```: Path of the input low-resolution images.
+- ```output_path```: Path of the output super-resolved images will be saved.
+- ```scale```: Upscaling factor.
+- ```self_ensemble```: Specify this to employ [geometric self-ensemble](http://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/papers/Lim_Enhanced_Deep_Residual_CVPR_2017_paper.pdf).
+- ```cuda_device```: CUDA device index to be used (will be set to the environment variable 'CUDA_VISIBLE_DEVICES').
+
+
+## Performance evaluation
+
+With the obtained super-resolved images, it is possible to evaluate the performance via ```evaluate_sr.py```, e.g.,
+```
+python evaluate_sr.py --sr_path=SR --truth_path=HR
+```
+
+Arguments:
+- ```sr_path```: Path of the super-resolved images.
+- ```truth_path```: Path of the ground-truth images.
+- ```shave_borders```: The amount of shaving pixles on borders of the images. It is usually set to the upscaling factor.
+- ```color_mode```: Color conversion mode. ycbcry: Y channel of the YCbCr color space. rgb: RGB channels of the RGB color space.
+- ```evaluators```: Comma-separated evaluation methods. The evaluators in the ```evaluators/``` folder will be used.
+- ```ouptut_name```: Filename of the output CSV file.
+
+You can also write your own evaluation metric by implementing an evaluator class that inherits ```BaseEvaluator``` in the ```evaluators/``` folder.
+
+
+## Model conversion
+
+It is possible to convert the other pre-trained super-resolution models.
+Please refer to the ```converter/``` folder for more information.
+In addition, please refer to the ```config/``` folder to write your own model config file along with the converted model.
+
+
+## Other utilities
+
+### Image downscaling utilities
+
+We also provide the downscaling utilities for evaluating the super-resolution models, which are in the ```utils/downscale/``` folder.
