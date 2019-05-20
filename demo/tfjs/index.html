@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>SRZoo Web Demo</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="text-center">
+        <br>
+        <h3>SRZoo Web Demo</h3>
+
+        <a id="load-button" class="btn btn-secondary btn-block disabled" href="javascript:load();">Load Model</a>
+        <div id="loading-status">&nbsp;</div>
+        <form id="upload-form mt-4">
+          <div class="form-group">
+            <input type="file" class="form-control-file" id="image-file-input" onchange="acceptInputFile(event);">
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                Input image
+              </div>
+              <div id="input-image-area" class="card-body">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                Output image
+              </div>
+              <div id="output-image-area" class="card-body">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <div id="canvas-container" class="container text-center" style="line-height: 0;">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.15.3/dist/tf.min.js"></script>
+
+    <script src="srzoo.js"></script>
+
+    <script type="text/javascript">
+      var srModel;
+      var srModelConfig = {};
+
+      $(document).ready(function() {
+        $('#load-button').removeClass('disabled');
+      });
+
+      function load() {
+        $('#load-button').addClass('disabled');
+        $('#loading-status').text('Loading...');
+
+        tf.loadGraphModel('model/tensorflowjs_model.pb').then(function(model) {
+          srModel = model;
+
+          $('#loading-status').text('Loaded');
+        });
+
+        srzoo.loadConfig('model/carn.json').then(function(config) {
+          srModelConfig = config;
+        });
+      }
+
+      function acceptInputFile(event) {
+        var file = event.target.files[0];
+        
+        if (!file.type.match('image.*')) return;
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var $img = $('<img class="img-fluid">');
+          $img.attr('src', e.target.result);
+          $img.on('load', function() {
+            employSR(this);
+          });
+          $('#input-image-area').html('').append($img);
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      function employSR(imgElement) {
+        var tfInput = tf.browser.fromPixels(imgElement).toFloat();
+        tfInput = srzoo.processInput(srModelConfig, tfInput);
+
+        var tfOutput = srModel.predict(tfInput, {batchSize: 1});
+        tfOutput = srzoo.processOutput(srModelConfig, tfOutput);
+
+        var canvas = $('<canvas />')[0];
+        tf.browser.toPixels(tfOutput, canvas).then(function() {
+          var $img = $('<img class="img-fluid">');
+          $img.attr('src', canvas.toDataURL());
+          $('#output-image-area').html('').append($img);
+        });
+      }
+
+    </script>
+  </body>
+</html>
