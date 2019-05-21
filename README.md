@@ -96,7 +96,7 @@ We also provide the downscaling utilities for evaluating the super-resolution mo
 
 ### Employing other image processing models
 
-Since SRZoo is developed to deal with models considering images as both inputs and outputs, our repository can be used to employ such algorithms with only a few modifications.
+Since SRZoo is developed to deal with models considering images as both inputs and outputs, our repository can be used to employ the other image processing algorithms with only a few modifications.
 As a proof-of-concept, we provide a pre-trained [deep learning-based image compression model](https://github.com/fab-jul/imgcomp-cvpr) in SRZoo.
 
 | Name | Config | Model | Source |
@@ -106,3 +106,4 @@ As a proof-of-concept, we provide a pre-trained [deep learning-based image compr
 | fab-jul/imgcomp-cvpr | [fabjul_imgcomp.json](configs/fabjul_imgcomp.json) | [fabjul_imgcomp_c.pb](http://mcml.yonsei.ac.kr/files/srzoo/fabjul_imgcomp_c.pb) | [imgcomp-cvpr](https://github.com/fab-jul/imgcomp-cvpr) |
 
 To use these models, simply set the upscaling factor (```--scale``` option of ```get_sr.py```) to 1.
+Note that only the GPU mode is currently supported for these models.
