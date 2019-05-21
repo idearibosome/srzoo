@@ -88,8 +88,21 @@ Please refer to the ```converter/``` folder for more information.
 In addition, please refer to the ```config/``` folder to write your own model config file along with the converted model.
 
 
-## Other utilities
+## Miscellaneous
 
 ### Image downscaling utilities
 
 We also provide the downscaling utilities for evaluating the super-resolution models, which are in the ```utils/downscale/``` folder.
+
+### Employing other image processing models
+
+Since SRZoo is developed to deal with models considering images as both inputs and outputs, our repository can be used to employ such algorithms with only a few modifications.
+As a proof-of-concept, we provide a pre-trained [deep learning-based image compression model](https://github.com/fab-jul/imgcomp-cvpr) in SRZoo.
+
+| Name | Config | Model | Source |
+| --- | --- | --- | --- |
+| fab-jul/imgcomp-cvpr | [fabjul_imgcomp.json](configs/fabjul_imgcomp.json) | [fabjul_imgcomp_a.pb](http://mcml.yonsei.ac.kr/files/srzoo/fabjul_imgcomp_a.pb) | [imgcomp-cvpr](https://github.com/fab-jul/imgcomp-cvpr) |
+| fab-jul/imgcomp-cvpr | [fabjul_imgcomp.json](configs/fabjul_imgcomp.json) | [fabjul_imgcomp_b.pb](http://mcml.yonsei.ac.kr/files/srzoo/fabjul_imgcomp_b.pb) | [imgcomp-cvpr](https://github.com/fab-jul/imgcomp-cvpr) |
+| fab-jul/imgcomp-cvpr | [fabjul_imgcomp.json](configs/fabjul_imgcomp.json) | [fabjul_imgcomp_c.pb](http://mcml.yonsei.ac.kr/files/srzoo/fabjul_imgcomp_c.pb) | [imgcomp-cvpr](https://github.com/fab-jul/imgcomp-cvpr) |
+
+To use these models, simply set the upscaling factor (```--scale``` option of ```get_sr.py```) to 1.
