@@ -78,7 +78,7 @@ Arguments:
 - ```truth_path```: Path of the ground-truth images.
 - ```shave_borders```: The amount of shaving pixles on borders of the images. It is usually set to the upscaling factor.
 - ```color_mode```: Color conversion mode. ycbcry: Y channel of the YCbCr color space. rgb: RGB channels of the RGB color space.
-- ```evaluators```: Comma-separated evaluation methods. The evaluators in the ```evaluators/``` folder will be used.
+- ```evaluators```: Comma-separated evaluation methods. The evaluators in the [```evaluators/```](evaluators/) folder will be used.
 - ```ouptut_name```: Filename of the output CSV file.
 
 You can also write your own evaluation metric by implementing an evaluator class that inherits ```BaseEvaluator``` in the ```evaluators/``` folder.
