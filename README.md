@@ -38,9 +38,12 @@ Please cite the paper of the original authors when you use the models.
 | RCAN | [rcan.json](configs/rcan.json) | 3 | [rcan_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x3.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
 | RCAN | [rcan.json](configs/rcan.json) | 4 | [rcan_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x4.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
 | RCAN | [rcan.json](configs/rcan.json) | 8 | [rcan_x8.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x8.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
+| MSRN | [msrn.json](configs/msrn.json) | 2 | [msrn_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/msrn_x2.pb) | [MSRN-PyTorch](https://github.com/MIVRC/MSRN-PyTorch) |
+| MSRN | [msrn.json](configs/msrn.json) | 3 | [msrn_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/msrn_x3.pb) | [MSRN-PyTorch](https://github.com/MIVRC/MSRN-PyTorch) |
+| MSRN | [msrn.json](configs/msrn.json) | 4 | [msrn_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/msrn_x4.pb) | [MSRN-PyTorch](https://github.com/MIVRC/MSRN-PyTorch) |
 | 4PP-EUSR | [4pp_eusr.json](configs/4pp_eusr.json) | 4 | [4pp_eusr_pirm_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/4pp_eusr_pirm_x4.pb) | [tf-perceptual-eusr](https://github.com/idearibosome/tf-perceptual-eusr) |
 | ESRGAN | [esrgan.json](configs/esrgan.json) | 4 | [esrgan_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/esrgan_x4.pb) | [ESRGAN](https://github.com/xinntao/ESRGAN) |
-| RRDB | [rrdb.json](configs/rrdb.json) | 4 | [rrdb_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/rrdb_x4.pb) | [RRDB](https://github.com/xinntao/ESRGAN) |
+| RRDB | [rrdb.json](configs/rrdb.json) | 4 | [rrdb_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/rrdb_x4.pb) | [ESRGAN](https://github.com/xinntao/ESRGAN) |
 | CARN | [carn.json](configs/carn.json) | 2 | [carn_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x2.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
 | CARN | [carn.json](configs/carn.json) | 3 | [carn_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x3.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
 | CARN | [carn.json](configs/carn.json) | 4 | [carn_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x4.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
@@ -84,15 +87,15 @@ You can also write your own evaluation metric by implementing an evaluator class
 ## Model conversion
 
 It is possible to convert the other pre-trained super-resolution models.
-Please refer to the ```converter/``` folder for more information.
-In addition, please refer to the ```config/``` folder to write your own model config file along with the converted model.
+Please refer to the [```converter/```](converter/) folder for more information.
+In addition, please refer to the [```config/```](config/) folder to write your own model config file along with the converted model.
 
 
 ## Miscellaneous
 
 ### Image downscaling utilities
 
-We also provide the downscaling utilities for evaluating the super-resolution models, which are in the ```utils/downscale/``` folder.
+We also provide the downscaling utilities for evaluating the super-resolution models, which are in the [```utils/downscale/```](utils/downscale/) folder.
 
 ### Employing other image processing models
 
@@ -105,5 +108,5 @@ As a proof-of-concept, we provide a pre-trained [deep learning-based image compr
 | fab-jul/imgcomp-cvpr | [fabjul_imgcomp.json](configs/fabjul_imgcomp.json) | [fabjul_imgcomp_b.pb](http://mcml.yonsei.ac.kr/files/srzoo/fabjul_imgcomp_b.pb) | [imgcomp-cvpr](https://github.com/fab-jul/imgcomp-cvpr) |
 | fab-jul/imgcomp-cvpr | [fabjul_imgcomp.json](configs/fabjul_imgcomp.json) | [fabjul_imgcomp_c.pb](http://mcml.yonsei.ac.kr/files/srzoo/fabjul_imgcomp_c.pb) | [imgcomp-cvpr](https://github.com/fab-jul/imgcomp-cvpr) |
 
-To use these models, simply set the upscaling factor (```--scale``` option of ```get_sr.py```) to 1.
+To use these models, simply set the upscaling factor (e.g., ```--scale``` option of ```get_sr.py```) to 1.
 Note that only the GPU mode is currently supported for these models.
