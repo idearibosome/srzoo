@@ -47,6 +47,10 @@ Please cite the paper of the original authors when you use the models.
 | CARN | [carn.json](configs/carn.json) | 2 | [carn_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x2.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
 | CARN | [carn.json](configs/carn.json) | 3 | [carn_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x3.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
 | CARN | [carn.json](configs/carn.json) | 4 | [carn_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/carn_x4.pb) | [CARN-pytorch](https://github.com/nmhkahn/CARN-pytorch) |
+| FRSR | [frsr_x2.json](configs/frsr_x2.json) | 2 | [frsr_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/frsr_x2.pb) | [NatSR](https://github.com/JWSoh/NatSR) |
+| FRSR | [natsr.json](configs/natsr.json) | 3 | [frsr_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/frsr_x3.pb) | [NatSR](https://github.com/JWSoh/NatSR) |
+| FRSR | [natsr.json](configs/natsr.json) | 4 | [frsr_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/frsr_x4.pb) | [NatSR](https://github.com/JWSoh/NatSR) |
+| NatSR | [natsr.json](configs/natsr.json) | 4 | [natsr_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/natsr_x4.pb) | [NatSR](https://github.com/JWSoh/NatSR) |
 
 
 ## Super-resolved image retrieval
