@@ -1,5 +1,15 @@
 # SRZoo
-![SRZoo](figures/logo.png)
+<p align="center">
+  <img src="figures/logo.png" alt="SRZoo">
+</p>
+<p align="center">
+  <a href="https://github.com/idearibosome/srzoo">
+    <img src="https://img.shields.io/badge/srzoo-supported-brightgreen" alt="SRZoo" />
+  </a>
+  <a href="#pre-trained-super-resolution-models">
+    <img src="https://img.shields.io/badge/models-26-blue" />
+  </a>
+</p>
 
 
 ## Introduction
@@ -7,9 +17,10 @@ SRZoo is a collection of toolkits and models for deep learning-based image super
 It provides various pre-trained state-of-the-art super-resolution models that are ready for use.
 
 Here are the key features of SRZoo:
-- With SRZoo, you can easily obtain the super-resolved images from various supported super-resolution methods.
-- Since it is based on TensorFlow, it is possible to employ the super-resolution models in various environments such as GPUs supporting CUDA and web browsers via TensorFlow.js.
-- It is possible to compare the performance of the super-resolution methods with the same evaluation metrics and on the same environment.
+- SRZoo provides **official** pre-trained models of various super-resolution methods.
+- With SRZoo, you can easily obtain the super-resolved images from the supported super-resolution methods.
+- It is possible to employ the super-resolution models in various environments such as GPUs supporting CUDA and web browsers via TensorFlow.js.
+- It is possible to compare the performance of the super-resolution methods with the same evaluation metrics and the same environment.
 
 
 ## Requirements
