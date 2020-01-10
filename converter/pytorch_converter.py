@@ -10,10 +10,10 @@ import converter_common
 def convert_to_srzoo(model, input_name='sr_input', channels_first=True, model_name='model.pb', output_name='sr_output'):
 
   if (channels_first):
-    input_np = np.zeros([1, 3, 128, 128])
+    input_np = np.zeros([1, 3, 32, 32])
     input_shape = (3, None, None)
   else:
-    input_np = np.zeros([1, 128, 128, 3])
+    input_np = np.zeros([1, 32, 32, 3])
     input_shape = (None, None, 3)
   
   input_var = torch.autograd.Variable(torch.FloatTensor(input_np))
