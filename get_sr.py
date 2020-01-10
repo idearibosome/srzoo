@@ -99,6 +99,8 @@ def main():
 
       output_image = np.clip(output_image, 0, 255)
     
+    output_image = np.round(output_image)
+    
     image_writer.write(output_image, output_path)
     tf.logging.info('%s -> %s, %.3f sec' % (input_path, output_path, running_time))
     running_time_list.append(running_time)
