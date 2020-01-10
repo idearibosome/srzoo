@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/srzoo-supported-brightgreen" alt="SRZoo" />
   </a>
   <a href="#pre-trained-super-resolution-models">
-    <img src="https://img.shields.io/badge/models-26-blue" />
+    <img src="https://img.shields.io/badge/models-29-blue" />
   </a>
 </p>
 
@@ -83,6 +83,7 @@ Arguments:
 - ```self_ensemble```: Specify this to employ [geometric self-ensemble](http://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/papers/Lim_Enhanced_Deep_Residual_CVPR_2017_paper.pdf).
 - ```cuda_device```: CUDA device index to be used (will be set to the environment variable 'CUDA_VISIBLE_DEVICES').
 
+※ Some models can be run only on GPUs due to the different ordering of the dimensions.
 
 ## Performance evaluation
 
