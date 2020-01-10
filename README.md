@@ -45,6 +45,9 @@ Please cite the paper of the original authors when you use the models.
 | EUSR | [eusr.json](configs/eusr.json) | 2 | [eusr_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/eusr_x2.pb) | [EUSR-TensorFlow](https://github.com/junhyukk/EUSR-Tensorflow) |
 | EUSR | [eusr.json](configs/eusr.json) | 4 | [eusr_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/eusr_x4.pb) | [EUSR-TensorFlow](https://github.com/junhyukk/EUSR-Tensorflow) |
 | EUSR | [eusr.json](configs/eusr.json) | 8 | [eusr_x8.pb](http://mcml.yonsei.ac.kr/files/srzoo/eusr_x8.pb) | [EUSR-TensorFlow](https://github.com/junhyukk/EUSR-Tensorflow) |
+| DBPN | [dbpn.json](configs/dbpn.json) | 2 | [dbpn_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/dbpn_x2.pb) | [DBPN-Pytorch](https://github.com/alterzero/DBPN-Pytorch) |
+| DBPN | [dbpn.json](configs/dbpn.json) | 4 | [dbpn_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/dbpn_x4.pb) | [DBPN-Pytorch](https://github.com/alterzero/DBPN-Pytorch) |
+| DBPN | [dbpn.json](configs/dbpn.json) | 8 | [dbpn_x8.pb](http://mcml.yonsei.ac.kr/files/srzoo/dbpn_x8.pb) | [DBPN-Pytorch](https://github.com/alterzero/DBPN-Pytorch) |
 | RCAN | [rcan.json](configs/rcan.json) | 2 | [rcan_x2.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x2.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
 | RCAN | [rcan.json](configs/rcan.json) | 3 | [rcan_x3.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x3.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
 | RCAN | [rcan.json](configs/rcan.json) | 4 | [rcan_x4.pb](http://mcml.yonsei.ac.kr/files/srzoo/rcan_x4.pb) | [RCAN](https://github.com/yulunzhang/RCAN) |
