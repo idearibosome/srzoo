@@ -22,6 +22,9 @@ Here are the key features of SRZoo:
 - It is possible to employ the super-resolution models in various environments such as GPUs supporting CUDA and web browsers via TensorFlow.js.
 - It is possible to compare the performance of the super-resolution methods with the same evaluation metrics and the same environment.
 
+You can find our motivation and some detailed description of SRZoo such as performance comparison in the following paper.
+- J.-H. Choi, J.-H. Kim, J.-S. Lee. SRZoo: an integrated repository for super-resolution using deep learning. IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), May 2020 (paper link coming soon)
+
 
 ## Requirements
 
