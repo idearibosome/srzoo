@@ -124,6 +124,11 @@ class NIQEEvaluator(BaseEvaluator):
     leftstd = np.sqrt(np.mean((vec[vec < 0]) ** 2))
     rightstd = np.sqrt(np.mean((vec[vec > 0]) ** 2))
 
+    if (np.isnan(leftstd)):
+      leftstd = 1e-8
+    if (np.isnan(rightstd)):
+      rightstd = 1e-8
+
     gammahat = leftstd / rightstd
     rhat = (np.mean(np.abs(vec)) ** 2) / (np.mean(vec ** 2))
     rhatnorm = (rhat * ((gammahat ** 3) + 1) * (gammahat + 1)) / (((gammahat ** 2) + 1) ** 2)
